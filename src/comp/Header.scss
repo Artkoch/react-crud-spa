@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
 
-  &  > *:not(:last-child)  {
+  & > *:not(:last-child) {
     margin-right: $gap;
   }
 }

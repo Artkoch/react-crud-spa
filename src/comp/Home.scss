@@ -4,7 +4,7 @@
   flex: 6;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   background-image: url("../img/bg.jpg");
   background-position: center;
   background-size: cover;
@@ -12,5 +12,5 @@
 
 .content {
   background-color: white;
-  padding: $gap*2;
+  padding: $gap * 2;
 }

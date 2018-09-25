@@ -1,5 +1,16 @@
 @import "../css/variables";
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: $gap;
+}
+
+.formWrapper {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
 .spinner {
   position: absolute;
   top: -4px;
