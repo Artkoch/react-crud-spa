@@ -1,0 +1,16 @@
+@import "../css/variables";
+
+.main {
+  flex: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  background-image: url("../img/bg.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.content {
+  background-color: white;
+  padding: $gap*2;
+}

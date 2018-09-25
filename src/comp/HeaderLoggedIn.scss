@@ -1,0 +1,5 @@
+@import "../css/variables";
+
+.headerAccount > *:not(:last-child)  {
+  margin-right: $gap;
+}

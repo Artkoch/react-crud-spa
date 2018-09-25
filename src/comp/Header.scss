@@ -1,0 +1,25 @@
+@import "../css/variables";
+
+.header {
+  flex: 1;
+  max-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid whitesmoke;
+  padding: $gap;
+}
+
+.logo {
+  width: 260px;
+  height: 60px;
+}
+
+.tool {
+  display: flex;
+  align-items: center;
+
+  &  > *:not(:last-child)  {
+    margin-right: $gap;
+  }
+}

@@ -1,0 +1,14 @@
+@import "../css/variables";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.footer {
+  flex: 1;
+  max-height: 60px;
+  text-align: right;
+  padding: $gap;
+}
