@@ -1,17 +1,21 @@
 @import "../css/variables";
 
 .header {
-  flex: 1;
-  max-height: 110px;
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border: 1px solid whitesmoke;
   padding: $gap;
+
+
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+  }
 }
 
 .logo {
-  width: 260px;
+  width: 290px;
   height: 60px;
 }
 
@@ -21,5 +25,9 @@
 
   & > *:not(:last-child) {
     margin-right: $gap;
+  }
+
+  @media (max-width: 600px) {
+    margin-top: $gap;
   }
 }

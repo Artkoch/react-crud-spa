@@ -13,8 +13,8 @@ const Home = inject("store")(
       <React.Fragment>
         <div className={s.main}>
           <div className={s.content}>
-            <h1>Access top medical education now!</h1>
-            <ul>
+            <h1 className={s.title}>Access top medical education now!</h1>
+            <ul className={s.list}>
               <li>24-hour access on desktop & mobile devices</li>
               <li>82 presentations structured into 5 tracks</li>
               <li>40+ hours of CME</li>

@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<title><%= htmlWebpackPlugin.options.title %></title>
+<meta name='viewport' content='initial-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=0' />
+<style>
+  #app:empty + #loading-indicator {
+    background: white;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+  }
+
+  #app + #loading-indicator {
+    display: none;
+  }
+
+  #loading-indicator {
+    align-items: center;
+    text-align: center;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .loading-indicator__title {
+    flex: 1;
+  }
+</style>

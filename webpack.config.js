@@ -1,4 +1,5 @@
-var path = require("path");
+const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: "./index.js",
@@ -82,5 +83,13 @@ module.exports = {
           "file-loader?name=/fonts/[name].[ext]&mimetype=application/font-otf"
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'CORD',
+      inject: true,
+      filename: 'index.html',
+      template: "./template/index.html"
+    })
+  ]
 };

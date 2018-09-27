@@ -13,4 +13,20 @@
 .content {
   background-color: white;
   padding: $gap * 2;
+
+  @media (max-width: 600px) {
+    padding: ($gap+10px) $gap;
+    margin: 0px 15px;
+  }
+}
+
+.title {
+  font-family: $mainFont;
+  line-height: 32px;
+  margin-bottom: 10px;
+}
+
+.list {
+  font-family: $mainFont;
+  padding-left: 30px;
 }
