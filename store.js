@@ -1,4 +1,4 @@
-import { observable, action, runInAction } from "mobx";
+import { observable, action } from "mobx";
 import axios from "axios";
 import qs from "qs";
 
@@ -63,11 +63,10 @@ class Store {
       const response = await axios(params);
       this.loginRequestState = "done";
 
-      runInAction(() => {
-        this.setToken(response.data);
-        this.setUser(response.data);
-        this.isLoggedIn = true;
-      });
+      this.setToken(response.data);
+      this.setUser(response.data);
+
+      this.isLoggedIn = true;
       this.isModalVisible = false;
     } catch (error) {
       this.loginRequestState = "error";
@@ -85,11 +84,10 @@ class Store {
       const response = await axios(params);
       this.signupRequestState = "done";
 
-      runInAction(() => {
-        this.setToken(response.data);
-        this.setUser(response.data);
-        this.isLoggedIn = true;
-      });
+      this.setToken(response.data);
+      this.setUser(response.data);
+
+      this.isLoggedIn = true;
       this.isModalVisible = false;
     } catch (error) {
       this.signupRequestState = "error";
@@ -108,10 +106,8 @@ class Store {
       const response = await axios(params);
       this.saveProfileRequestState = "done";
 
-      runInAction(() => {
-        this.setUser(response.data);
-        this.isLoggedIn = true;
-      });
+      this.setUser(response.data);
+      this.isLoggedIn = true;
     } catch (error) {
       this.saveProfileRequestState = "error";
       console.error(error);
@@ -120,10 +116,8 @@ class Store {
 
   @action
   logOut() {
-    runInAction(() => {
-      this.isLoggedIn = false;
-      this.token = "";
-    });
+    this.isLoggedIn = false;
+    this.token = "";
   }
 
   @action
