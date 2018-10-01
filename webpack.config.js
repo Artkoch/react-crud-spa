@@ -86,7 +86,6 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'CORD',
       inject: true,
       filename: 'index.html',
       template: "./template/index.html"
