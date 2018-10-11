@@ -2,7 +2,7 @@ import { observable, action } from "mobx";
 import axios from "axios";
 import qs from "qs";
 
-const baseURL = "https://penxy-mock-api.herokuapp.com1/";
+const baseURL = "https://penxy-mock-api.herokuapp.com/";
 const login = "/token";
 const signup = "/signup";
 const profile = "/profile";
@@ -36,7 +36,7 @@ class Store {
   userEmail = "";
 
   @observable
-  isModalVisible = true;
+  isModalVisible = false;
   @observable
   renderModelContent = "login";
 
