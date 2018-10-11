@@ -69,6 +69,14 @@ class EditProfile extends React.Component {
     );
   }
 
+  componentDidUpdate(){
+    this.props.store.saveProfileRequestState === "error" && this.showFormError("Error. Something went wrong");
+  }
+  
+  showFormError = (m) => {
+    message.error(m)
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {

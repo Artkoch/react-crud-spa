@@ -6,10 +6,6 @@ import { observer, inject } from "mobx-react";
 
 const FormItem = Form.Item;
 
-const showFormError = () => {
-  message.error("An error occured");
-};
-
 @inject("store")
 @observer
 class SignupForm extends React.Component {
@@ -90,15 +86,19 @@ class SignupForm extends React.Component {
     );
   }
 
+  componentDidUpdate(){
+    this.props.store.signupRequestState === "error" && this.showFormError("Error. Something went wrong");
+  }
+  
+  showFormError = (m) => {
+    message.error(m)
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       !err && console.log("Received values of form: ", values);
-
-      if (err) {
-        showFormError();
-        return;
-      }
+      err && this.showFormError("Error. Make sure you filled all the fields correctly");
 
       this.props.store.signup({
         email: values.email,

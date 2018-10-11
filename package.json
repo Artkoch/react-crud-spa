@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "prettier": "prettier --write \"**/*.{js,json,md,scss,ts,tsx}\"",
-    "start": "webpack-dev-server --hot --mode development",
+    "start": "webpack-dev-server --hot --mode development --open 'Google Chrome'",
     "build": "webpack --mode production"
   },
   "author": "Arthur Kocharyan",

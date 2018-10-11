@@ -6,13 +6,10 @@ import { observer, inject } from "mobx-react";
 
 const FormItem = Form.Item;
 
-const showFormError = () => {
-  message.error("Error. Make sure you used correct email and password ");
-};
-
 @inject("store")
 @observer
 class LoginForm extends React.Component {
+  
   render() {
     const { getFieldDecorator } = this.props.form;
     const textState = {
@@ -24,7 +21,7 @@ class LoginForm extends React.Component {
     const SpinnerIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
     const EmailIcon = <Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />;
     const LockIcon = <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />;
-
+    
     return (
       <div>
         <h1>Login</h1>
@@ -64,29 +61,38 @@ class LoginForm extends React.Component {
             >
               Login
             </Button>
-            {this.props.store.loginRequestState == "pending" && (
+            {this.props.store.loginRequestState === "pending" && (
               <Spin className={s.spinner} indicator={SpinnerIcon} />
             )}
+
           </FormItem>
         </Form>
+        
       </div>
     );
   }
 
-  handleSubmit = e => {
+  componentDidUpdate(){
+    this.props.store.loginRequestState === "error" && this.showFormError("Error. Something went wrong");
+  }
+  
+  showFormError = (m) => {
+    message.error(m)
+  };
+
+  handleSubmit = (e) => {
     e.preventDefault();
+    
     this.props.form.validateFields((err, values) => {
       !err && console.log("Received values of form: ", values);
-
-      if (err) {
-        showFormError();
-        return;
-      }
-
+      
+      err && this.showFormError("Error. Make sure you email and password are correct");
+      
       this.props.store.login({
         email: values.email,
         password: values.password
       });
+      
     });
   };
 }

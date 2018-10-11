@@ -2,7 +2,7 @@ import { observable, action } from "mobx";
 import axios from "axios";
 import qs from "qs";
 
-const baseURL = "https://penxy-mock-api.herokuapp.com/";
+const baseURL = "https://penxy-mock-api.herokuapp.com1/";
 const login = "/token";
 const signup = "/signup";
 const profile = "/profile";
@@ -36,7 +36,7 @@ class Store {
   userEmail = "";
 
   @observable
-  isModalVisible = false;
+  isModalVisible = true;
   @observable
   renderModelContent = "login";
 
@@ -49,7 +49,7 @@ class Store {
 
   @action
   setUser(data) {
-    const { access_token, name, email } = data;
+    const { name, email } = data;
     this.userName = name;
     this.userEmail = email;
   }
@@ -75,6 +75,7 @@ class Store {
     }
   }
 
+
   @action
   async signup(dataToSend) {
     this.signupRequestState = "pending";
@@ -92,6 +93,7 @@ class Store {
     } catch (error) {
       this.signupRequestState = "error";
       console.error(error);
+      this.signupRequestState = "stop";
     }
   }
 
@@ -111,6 +113,7 @@ class Store {
     } catch (error) {
       this.saveProfileRequestState = "error";
       console.error(error);
+      this.saveProfileRequestState = "stop";
     }
   }
 
